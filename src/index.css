@@ -7,3 +7,7 @@
 /* App */
 
 @import url('./components/App/App.css');
+
+/* Footer */
+
+@import url('./components/Footer/Footer.css');
