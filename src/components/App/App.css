@@ -1,7 +1,7 @@
 .app {
   min-width: 320px;
   font-family: 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
-  font-style:  normal;
+  font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
@@ -14,26 +14,6 @@
   max-width: 1140px;
   padding-left: calc((100% - 1140px) / 2);
   padding-right: calc((100% - 1140px) / 2);
-}
-
-.list {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  display: flex;
-}
-
-.link {
-  color: var(--text-main);
-  text-decoration: none;
-  cursor: pointer;
-  transition: opacity .2s ease-out;
-}
-
-@media (any-hover: hover) {
-  .link:hover {
-    opacity: .7;
-  }
 }
 
 @media screen and (max-width: 1200px) {

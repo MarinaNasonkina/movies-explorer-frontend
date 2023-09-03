@@ -8,6 +8,28 @@
 
 @import url('./components/App/App.css');
 
+/* Repeating blocks */
+
+@import url('./blocks/link.css');
+
+@import url('./blocks/logo.css');
+
+@import url('./blocks/list.css');
+
+@import url('./blocks/profile.css');
+
+@import url('./blocks/btn.css');
+
+@import url('./blocks/slide-from-right.css');
+
+/* Header */
+
+@import url('./components/Header/Header.css');
+
+@import url('./components/Navigation/Navigation.css');
+
+@import url('./components/SideNavBar/SideNavBar.css');
+
 /* Footer */
 
 @import url('./components/Footer/Footer.css');

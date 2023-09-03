@@ -1,7 +1,15 @@
+// import { useState } from 'react';
+
+import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
 export default function App() {
+  const loggedIn = true;
+
   return (
-    <Footer />
+    <>
+      <Header loggedIn={loggedIn} />
+      <Footer />
+    </>
   );
 }

@@ -1,0 +1,20 @@
+.profile {
+  padding-bottom: 3px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 14px;
+  font-weight: var(--medium);
+  line-height: 16px;
+}
+
+.profile__icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  background: url('../images/account-main.svg') var(--btn-movies) no-repeat center;
+}
+
+.profile__icon_type_promo {
+  background: url('../images/account-landing.svg') var(--btn-main) no-repeat center;
+}

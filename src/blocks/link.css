@@ -1,0 +1,33 @@
+.link {
+  color: var(--text-main);
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity .2s ease-out;
+}
+
+.link_active {
+  font-weight: var(--medium);
+}
+
+@media (any-hover: hover) {
+  .link:hover {
+    opacity: .7;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .link {
+    font-weight: var(--medium);
+    padding-bottom: 4px;
+  }
+
+  .link_active {
+    border-bottom: 2px solid var(--border-main);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .link {
+    padding-bottom: 7px;
+  }
+}

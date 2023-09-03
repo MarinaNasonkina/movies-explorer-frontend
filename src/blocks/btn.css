@@ -1,0 +1,26 @@
+.btn {
+  padding: 0;
+  border: none;
+  border-radius: 3px;
+  color: var(--text-light);
+  background-color: var(--btn-main);
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity .2s ease-out;
+}
+
+.btn_type_signin {
+  padding: 8px 20px;
+}
+
+@media (any-hover: hover) {
+  .btn:hover {
+    opacity: .8;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .btn_type_signin {
+    padding: 5px 12px;
+  }
+}
