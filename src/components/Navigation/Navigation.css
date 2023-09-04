@@ -28,7 +28,7 @@
 @media screen and (max-width: 1200px) {
   .navigation_unauthorized {
     display: flex;
-    padding-bottom: 0;
+    padding-top: 6px;
   }
 
   .navigation__menu,

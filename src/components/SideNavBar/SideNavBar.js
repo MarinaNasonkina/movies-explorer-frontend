@@ -3,8 +3,11 @@ import { NavLink, Link } from 'react-router-dom';
 
 import useAdditionalClose from '../../utils/useAdditionalClose';
 
-export default function SideNavBar({ isPathMain, addLinkActive }) {
+export default function SideNavBar({ isPathMain }) {
   const [isNavOpen, setIsNavOpen] = useState(false);
+
+  const addLinkActive = ({ isActive }) =>
+    `link link_in_side-nav${isActive ? ' link_active' : ''}`;
 
   function toggleIsNavOpen() {
     setIsNavOpen(!isNavOpen);

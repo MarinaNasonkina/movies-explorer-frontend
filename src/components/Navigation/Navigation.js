@@ -28,7 +28,7 @@ export default function Navigation({ loggedIn, isPathMain }) {
           }`}
         ></div>
       </Link>
-      <SideNavBar isPathMain={isPathMain} addLinkActive={addLinkActive} />
+      <SideNavBar isPathMain={isPathMain} />
     </nav>
   ) : (
     <nav className='navigation navigation_unauthorized'>
