@@ -30,6 +30,12 @@
 
 @import url('./components/SideNavBar/SideNavBar.css');
 
+/* Main */
+
+@import url('./components/Promo/Promo.css');
+
+@import url('./components/NavTab/NavTab.css');
+
 /* Footer */
 
 @import url('./components/Footer/Footer.css');

@@ -1,0 +1,23 @@
+.nav-tab {
+  padding: 25px 0;
+  width: 100%;
+  justify-content: center;
+  gap: 40.5px;
+  background: var(--bg-navtab);
+}
+
+.nav-tab__link {
+  font-size: 13px;
+  font-weight: var(--medium);
+  line-height: 16px;
+}
+
+@media screen and (max-width: 730px) {
+  .nav-tab {
+    gap: 24.5px;
+  }
+
+  .nav-tab__link {
+    font-size: 11px;
+  }
+}

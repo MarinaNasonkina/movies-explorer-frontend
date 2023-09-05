@@ -9,6 +9,16 @@
   font-weight: var(--medium);
 }
 
+.link_in_side-nav {
+  font-weight: var(--medium);
+  padding-bottom: 4px;
+}
+
+.link_in_nav-tab {
+  color: var(--text-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
 @media (any-hover: hover) {
   .link:hover {
     opacity: .7;
@@ -16,11 +26,6 @@
 }
 
 @media screen and (max-width: 1200px) {
-  .link_in_side-nav {
-    font-weight: var(--medium);
-    padding-bottom: 4px;
-  }
-
   .link_active {
     border-bottom: 2px solid var(--border-main);
   }
