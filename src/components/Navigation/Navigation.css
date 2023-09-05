@@ -5,7 +5,6 @@
 }
 
 .navigation_unauthorized {
-  padding-bottom: 6px;
   gap: 30px;
 }
 
@@ -29,6 +28,7 @@
   .navigation_unauthorized {
     display: flex;
     padding-top: 6px;
+    padding-bottom: 6px;
   }
 
   .navigation__menu,

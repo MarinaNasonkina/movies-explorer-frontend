@@ -66,8 +66,8 @@
 @media screen and (max-width: 600px) {
   .navigation__menu-btn {
     width: 40px;
-    height: 43px;
-    background-size: 34px 40px;
+    height: 38px;
+    background: url('../../images/menu-btn-small.svg') no-repeat center;
   }
 
   .side-nav__container {
