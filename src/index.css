@@ -22,6 +22,8 @@
 
 @import url('./blocks/slide-from-right.css');
 
+@import url('./blocks/landing-title.css');
+
 /* Header */
 
 @import url('./components/Header/Header.css');
@@ -35,6 +37,8 @@
 @import url('./components/Promo/Promo.css');
 
 @import url('./components/NavTab/NavTab.css');
+
+@import url('./components/AboutProject/AboutProject.css');
 
 /* Footer */
 
