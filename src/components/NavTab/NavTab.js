@@ -8,29 +8,29 @@ export default function NavTab() {
   }
 
   return (
-    <ul className='list nav-tab'>
-      <li className='nav-tab__link'>
+    <ul className='nav-tab'>
+      <li className='nav-tab__text'>
         <a
           href='#about-project'
-          className='link link_in_nav-tab'
+          className='nav-tab__link'
           onClick={scrollSmoothly}
         >
           О проекте
         </a>
       </li>
-      <li className='nav-tab__link'>
+      <li className='nav-tab__text'>
         <a
           href='#techs'
-          className='link link_in_nav-tab'
+          className='nav-tab__link'
           onClick={scrollSmoothly}
         >
           Технологии
         </a>
       </li>
-      <li className='nav-tab__link'>
+      <li className='nav-tab__text'>
         <a
           href='#about-me'
-          className='link link_in_nav-tab'
+          className='nav-tab__link'
           onClick={scrollSmoothly}
         >
           Студент

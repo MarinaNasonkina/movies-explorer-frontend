@@ -31,6 +31,16 @@
   font-size: 14px;
   font-weight: var(--regular);
   line-height: normal;
+  color: var(--text-main);
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity .2s ease-out;
+}
+
+@media (any-hover: hover) {
+  .page-not-found__link:hover {
+    opacity: .7;
+  }
 }
 
 @media screen and (max-width: 1024px) and (orientation: portrait) {

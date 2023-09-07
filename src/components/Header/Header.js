@@ -1,5 +1,6 @@
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
+import Logo from '../Logo/Logo';
 import Navigation from '../Navigation/Navigation';
 
 export default function Header({ loggedIn }) {
@@ -10,7 +11,7 @@ export default function Header({ loggedIn }) {
     <header
       className={`header${isPathMain ? ' header_type_promo' : ''} app__content`}
     >
-      <Link to='/' aria-label='О проекте.' className='link logo' />
+      <Logo />
       <Navigation loggedIn={loggedIn} isPathMain={isPathMain} />
     </header>
   );

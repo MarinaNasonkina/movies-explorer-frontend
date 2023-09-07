@@ -8,21 +8,13 @@
 
 @import url('./components/App/App.css');
 
-/* Repeating blocks */
+/* Repeating components */
 
-@import url('./blocks/link.css');
+@import url('./components/Logo/Logo.css');
 
-@import url('./blocks/logo.css');
+@import url('./components/Button/Button.css');
 
-@import url('./blocks/list.css');
-
-@import url('./blocks/profile.css');
-
-@import url('./blocks/btn.css');
-
-@import url('./blocks/slide-from-right.css');
-
-@import url('./blocks/landing-title.css');
+@import url('./components/LandingTitle/LandingTitle.css');
 
 /* Header */
 

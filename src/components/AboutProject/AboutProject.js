@@ -1,7 +1,9 @@
+import LandingTitle from '../LandingTitle/LandingTitle';
+
 export default function AboutProject() {
   return (
     <section id='about-project' className='about-project app__content'>
-      <h2 className='landing-title'>О проекте</h2>
+      <LandingTitle>О проекте</LandingTitle>
       <div className='about-project__description'>
         <h3 className='about-project__title'>Дипломный проект включал 5 этапов</h3>
         <p className='about-project__text'>

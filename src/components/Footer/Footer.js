@@ -6,11 +6,11 @@ export default function Footer() {
       </p>
       <div className='footer__container'>
         <p className='footer__text'>&copy; 2023</p>
-        <ul className='list footer__list'>
+        <ul className='footer__list'>
           <li className='footer__text'>
             <a
               href='https://practicum.yandex.ru'
-              className='link'
+              className='footer__link'
               target='_blank'
               rel='noreferrer'
             >
@@ -20,7 +20,7 @@ export default function Footer() {
           <li className='footer__text'>
             <a
               href='https://github.com/MarinaNasonkina'
-              className='link'
+              className='footer__link'
               target='_blank'
               rel='noreferrer'
             >
