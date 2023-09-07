@@ -1,0 +1,119 @@
+.techs {
+  padding-top: 101px;
+  padding-bottom: 100px;
+  background-color: var(--bg-techs);
+}
+
+.techs__container {
+  padding-top: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.techs__title {
+  margin: 0;
+  padding: 0 0 26px;
+  font-size: 50px;
+  font-weight: var(--regular);
+  line-height: 58px;
+  letter-spacing: -2px;
+}
+
+.techs__subtitle {
+  margin: 0;
+  padding: 0;
+  max-width: 460px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: var(--regular);
+  line-height: 20px;
+  letter-spacing: -0.56px;
+}
+
+.techs__list {
+  margin: 0;
+  padding: 100px 0 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style-type: none;
+}
+
+.techs__text {
+  margin: 0;
+  padding-top: 21px;
+  padding-bottom: 22px;
+  min-width: 90px;
+  border-radius: 10px;
+  background-color: var(--fill-techs);
+  text-align: center;
+  font-size: 14px;
+  font-weight: var(--regular);
+  line-height: 17px;
+  letter-spacing: -0.56px;
+}
+
+@media screen and (max-width: 1200px) {
+  .techs {
+    padding: 91px 50px 90px;
+  }
+
+  .techs__container {
+    padding-top: 80px;
+  }
+
+  .techs__title {
+    padding: 0 0 22px;
+  }
+
+  .techs__subtitle {
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.48px;
+  }
+
+  .techs__list {
+    padding: 83px 0 0;
+  }
+
+  .techs__text {
+    padding-bottom: 21px;
+    min-width: 84px;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: -0.48px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .techs {
+    padding: 71px 18px 70px;
+    background-color: var(--bg-main);
+  }
+
+  .techs__container {
+    padding-top: 60px;
+  }
+
+  .techs__title {
+    padding: 0 0 24px;
+    font-size: 30px;
+    line-height: 36px;
+    letter-spacing: -1.2px;
+  }
+
+  .techs__subtitle {
+    max-width: 292px;
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: -0.44px;
+  }
+
+  .techs__list {
+    padding: 50px 0 0;
+    max-width: 178px;
+    justify-content: flex-start;
+  }
+}

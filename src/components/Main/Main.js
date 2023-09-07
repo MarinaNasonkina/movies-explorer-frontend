@@ -1,6 +1,7 @@
 import Header from '../Header/Header';
 import Promo from '../Promo/Promo';
 import AboutProject from '../AboutProject/AboutProject';
+import Techs from '../Techs/Techs';
 import Footer from '../Footer/Footer';
 
 export default function Main({ loggedIn }) {
@@ -10,6 +11,7 @@ export default function Main({ loggedIn }) {
       <main>
         <Promo />
         <AboutProject />
+        <Techs />
       </main>
       <Footer />
     </>
