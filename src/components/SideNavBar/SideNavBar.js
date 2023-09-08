@@ -5,6 +5,8 @@ import Button from '../Button/Button';
 
 import useAdditionalClose from '../../utils/useAdditionalClose';
 
+import './SideNavBar.css';
+
 export default function SideNavBar({ isPathMain }) {
   const [isNavOpen, setIsNavOpen] = useState(false);
 

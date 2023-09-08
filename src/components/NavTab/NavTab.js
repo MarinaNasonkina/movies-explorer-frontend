@@ -1,3 +1,5 @@
+import './NavTab.css';
+
 export default function NavTab() {
   function scrollSmoothly(evt) {
     evt.preventDefault();

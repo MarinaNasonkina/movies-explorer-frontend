@@ -1,5 +1,7 @@
 import LandingTitle from '../LandingTitle/LandingTitle';
 
+import './AboutProject.css';
+
 export default function AboutProject() {
   return (
     <section id='about-project' className='about-project app__content'>

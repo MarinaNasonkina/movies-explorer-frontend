@@ -3,6 +3,8 @@ import Portfolio from '../Portfolio/Portfolio';
 
 import photo from '../../images/photo.jpg';
 
+import './AboutMe.css';
+
 export default function AboutMe() {
   return (
     <section id='about-me' className='about-me app__content'>
