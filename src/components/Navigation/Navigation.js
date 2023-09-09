@@ -45,7 +45,8 @@ export default function Navigation({ loggedIn, isPathMain }) {
         Регистрация
       </Link>
       <Button
-        className='btn_type_signin navigation__btn'
+        type='button'
+        className='navigation__btn'
         onClick={goToSignIn}
       >Войти</Button>
     </nav>

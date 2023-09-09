@@ -69,6 +69,7 @@
 }
 
 .navigation__btn {
+  padding: 8px 20px;
   font-size: 12px;
   font-weight: var(--medium);
   line-height: 16px;
@@ -100,8 +101,12 @@
     gap: 14px;
   }
 
-  .navigation__auth-link,
+  .navigation__auth-link {
+    font-size: 10px;
+  }
+
   .navigation__btn {
+    padding: 5px 12px;
     font-size: 10px;
   }
 }

@@ -22,6 +22,7 @@ export default function SideNavBar({ isPathMain }) {
   return (
     <>
       <Button
+        type='button'
         className='navigation__menu-btn'
         ariaLabel='Открыть меню.'
         onClick={toggleIsNavOpen}
@@ -33,6 +34,7 @@ export default function SideNavBar({ isPathMain }) {
           }`}
         >
           <Button
+            type='button'
             className='side-nav__close-btn'
             ariaLabel='Закрыть меню.'
             onClick={toggleIsNavOpen}
