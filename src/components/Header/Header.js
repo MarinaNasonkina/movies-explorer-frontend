@@ -11,7 +11,7 @@ export default function Header({ loggedIn }) {
 
   return (
     <header
-      className={`header${isPathMain ? ' header_type_promo' : ''} app__content`}
+      className={`header${isPathMain ? ' header_type_promo' : ''}`}
     >
       <Logo />
       <Navigation loggedIn={loggedIn} isPathMain={isPathMain} />

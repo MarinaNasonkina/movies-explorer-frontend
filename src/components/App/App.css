@@ -9,24 +9,3 @@
   -moz-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
 }
-
-.app__content {
-  max-width: 1140px;
-  padding-left: calc((100% - 1140px) / 2);
-  padding-right: calc((100% - 1140px) / 2);
-}
-
-@media screen and (max-width: 1200px) {
-  .app__content {
-    max-width: 100%;
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .app__content {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-}

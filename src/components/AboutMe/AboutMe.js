@@ -7,7 +7,7 @@ import './AboutMe.css';
 
 export default function AboutMe() {
   return (
-    <section id='about-me' className='about-me app__content'>
+    <section id='about-me' className='about-me'>
       <LandingTitle>Студент</LandingTitle>
       <div className='about-me__container'>
         <img src={photo} alt='Фотография.' className='about-me__photo' />

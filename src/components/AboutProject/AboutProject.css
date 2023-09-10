@@ -1,6 +1,6 @@
 .about-project {
-  padding-top: 111px;
-  padding-bottom: 110px;
+  max-width: 1140px;
+  padding: 111px calc((100% - 1140px) / 2) 110px;
 }
 
 .about-project__description {
@@ -63,6 +63,7 @@
 
 @media screen and (max-width: 1200px) {
   .about-project {
+    max-width: 100%;
     padding: 91px 50px 90px;
   }
 

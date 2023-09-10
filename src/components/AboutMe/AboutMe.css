@@ -1,6 +1,6 @@
 .about-me {
-  padding-top: 111px;
-  padding-bottom: 125px;
+  max-width: 1140px;
+  padding: 111px calc((100% - 1140px) / 2) 125px;
 }
 
 .about-me__container {
@@ -56,6 +56,14 @@
 @media (any-hover: hover) {
   .about-me__link:hover {
     opacity: .7;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .about-me {
+    max-width: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 }
 

@@ -4,7 +4,7 @@ import './Techs.css';
 
 export default function Techs() {
   return (
-    <section id='techs' className='techs app__content'>
+    <section id='techs' className='techs'>
       <LandingTitle>Технологии</LandingTitle>
       <div className='techs__container'>
         <h3 className='techs__title'>7 технологий</h3>
