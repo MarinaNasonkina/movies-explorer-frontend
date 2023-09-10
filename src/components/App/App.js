@@ -11,9 +11,17 @@ import PageNotFound from '../PageNotFound/PageNotFound';
 
 export default function App() {
   const [loggedIn, setLoggedIn] = useState(false);
+  const currentUser = {
+    name: 'Виталий',
+    email: 'pochta@yandex.ru',
+  };
 
   function handleLogin() {
     setLoggedIn(true);
+  }
+
+  function handleLogOut() {
+    setLoggedIn(false);
   }
 
   return (
@@ -21,7 +29,7 @@ export default function App() {
       <Route path='/' element={<Main loggedIn={loggedIn} />} />
       <Route path='/movies' element={<Movies loggedIn={true} />} />
       <Route path='/saved-movies' element={<SavedMovies loggedIn={true} />} />
-      <Route path='/profile' element={<Profile loggedIn={true} />} />
+      <Route path='/profile' element={<Profile loggedIn={true} user={currentUser} onLogOut={handleLogOut} />} />
       <Route path='/signup' element={<Register onRegister={handleLogin}/>} />
       <Route path='/signin' element={<Login onLogin={handleLogin} />} />
       <Route path='*' element={<PageNotFound />} />
