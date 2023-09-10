@@ -29,10 +29,12 @@
   --text-light: #fff;
   --text-label: #a0a0a0;
   --text-accent: #ff4062;
+  --text-disabled: #c2c2c2;
   /* Button color */
   --btn-main: #000;
   --btn-movies: #f9f9f9;
   --btn-movies-saved: #ff4062;
+  --btn-disabled: #f8f8f8;
   --btn-cbox-on: #2be080;
   --btn-cbox-off: #ebebeb;
   --btn-cbox-tumbler-on: #fff;

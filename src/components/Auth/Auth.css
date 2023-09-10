@@ -1,0 +1,143 @@
+.auth {
+  box-sizing: border-box;
+  padding: 70px 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth__container {
+  width: 100%;
+  max-width: 396px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.auth__title {
+  margin: 0;
+  padding: 40px 0;
+  font-size: 24px;
+  font-weight: var(--medium);
+  line-height: 29px;
+}
+
+.auth__form {
+  width: 100%;
+  height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.auth__fields {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth__submit-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.auth__submit-err {
+  min-height: 14px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: var(--regular);
+  line-height: 13px;
+  color: var(--text-accent);
+}
+
+.auth__submit-btn {
+  padding: 13px 0 15px;
+  font-size: 14px;
+  font-weight: var(--medium);
+  line-height: 17px;
+}
+
+.auth__submit-btn:disabled {
+  color: var(--text-disabled);
+  background-color: var(--btn-disabled);
+  cursor: default;
+}
+
+.auth__subtitle {
+  margin: 0;
+  padding: 16px 0 0;
+  text-align: center;
+  font-size: 14px;
+  font-weight: var(--regular);
+  line-height: 17px;
+  color: var(--text-label);
+}
+
+.auth__link {
+  margin-left: 6px;
+  color: var(--text-main);
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity .2s ease-out;
+}
+
+@media (any-hover: hover) {
+  .auth__link:hover {
+    opacity: .7;
+  }
+
+  .auth__submit-btn:disabled:hover {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .auth {
+    padding: 56px 0 30px;
+  }
+
+  .auth__container {
+    max-width: 260px;
+    align-items: center;
+  }
+
+  .auth__form {
+    height: calc(100vh - 312px);
+  }
+
+  .auth__title {
+    padding: 50px 0 80px;
+  }
+
+  .auth__submit-btn {
+    padding: 15px 0;
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .auth__subtitle {
+    padding: 14px 0 0;
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .auth__link {
+    margin-left: 7px;
+  }
+}
+
+@media screen and (orientation: landscape) and (max-height: 699px) {
+  .auth,
+  .auth__form {
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 600px) and (max-height: 722px) {
+  .auth,
+  .auth__form {
+    height: auto;
+  }
+}
