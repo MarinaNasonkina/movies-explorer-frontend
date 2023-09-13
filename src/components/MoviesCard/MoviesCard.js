@@ -3,15 +3,20 @@ import { useState } from 'react';
 import Button from '../Button/Button';
 
 import { DB_URL } from '../../vendor/beatfilm-movies';
-import saved from '../../images/saved.svg';
+import savedBtn from '../../images/saved.svg';
+import deleteBtn from '../../images/delete.svg';
 
 import './MoviesCard.css';
 
-export default function MoviesCard({ movie }) {
+export default function MoviesCard({ movie, isPathMovies }) {
   const [isSaved, setIsSaved] = useState(false);
 
   function toggleIsSaved() {
     setIsSaved(!isSaved);
+  }
+
+  function handleDelete(e) {
+    e.target.closest('.card').remove();
   }
 
   return (
@@ -34,13 +39,23 @@ export default function MoviesCard({ movie }) {
           {`${Math.floor(movie.duration / 60)}ч ${movie.duration % 60}м`}
         </p>
       </div>
-      <Button
-        type='button'
-        className={`card__save-btn${isSaved ? ' card__save-btn_active' : ''}`}
-        onClick={toggleIsSaved}
-      >
-        {isSaved ? <img src={saved} alt='Фильм сохранен.' /> : 'Сохранить'}
-      </Button>
+      {isPathMovies ? (
+        <Button
+          type='button'
+          className={`card__save-btn${isSaved ? ' card__save-btn_active' : ''}`}
+          onClick={toggleIsSaved}
+        >
+          {isSaved ? <img src={savedBtn} alt='Фильм сохранен.' /> : 'Сохранить'}
+        </Button>
+      ) : (
+        <Button
+          type='button'
+          className='card__delete-btn'
+          onClick={handleDelete}
+        >
+          <img src={deleteBtn} alt='Удалить фильм из сохраненных.' />
+        </Button>
+      )}
     </article>
   );
 }
