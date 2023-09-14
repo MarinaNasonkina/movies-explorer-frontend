@@ -10,9 +10,7 @@ export default function Header({ loggedIn }) {
   const isPathMain = location.pathname === '/';
 
   return (
-    <header
-      className={`header${isPathMain ? ' header_type_promo' : ''}`}
-    >
+    <header className={`header${isPathMain ? ' header_type_promo' : ''}`}>
       <Logo />
       <Navigation loggedIn={loggedIn} isPathMain={isPathMain} />
     </header>

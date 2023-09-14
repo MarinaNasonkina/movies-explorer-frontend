@@ -44,11 +44,9 @@ export default function Navigation({ loggedIn, isPathMain }) {
       <Link to='/signup' className='navigation__auth-link'>
         Регистрация
       </Link>
-      <Button
-        type='button'
-        className='navigation__btn'
-        onClick={goToSignIn}
-      >Войти</Button>
+      <Button type='button' className='navigation__btn' onClick={goToSignIn}>
+        Войти
+      </Button>
     </nav>
   );
 }

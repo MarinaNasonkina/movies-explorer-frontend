@@ -1,9 +1,8 @@
 @font-face {
   font-family: 'Inter';
-  font-style:  normal;
+  font-style: normal;
   font-weight: 400;
-  src:
-    url('./Inter-Regular.woff2') format('woff2'),
+  src: url('./Inter-Regular.woff2') format('woff2'),
     url('./Inter-Regular.woff') format('woff'),
     url('./Inter-Regular.ttf') format('truetype'),
     url('./Inter-Regular.eot') format('eot');
@@ -11,10 +10,9 @@
 
 @font-face {
   font-family: 'Inter';
-  font-style:  normal;
+  font-style: normal;
   font-weight: 500;
-  src:
-    url('./Inter-Medium.woff2') format('woff2'),
+  src: url('./Inter-Medium.woff2') format('woff2'),
     url('./Inter-Medium.woff') format('woff'),
     url('./Inter-Medium.ttf') format('truetype'),
     url('./Inter-Medium.eot') format('eot');

@@ -21,20 +21,12 @@ export default function NavTab() {
         </a>
       </li>
       <li className='nav-tab__text'>
-        <a
-          href='#techs'
-          className='nav-tab__link'
-          onClick={scrollSmoothly}
-        >
+        <a href='#techs' className='nav-tab__link' onClick={scrollSmoothly}>
           Технологии
         </a>
       </li>
       <li className='nav-tab__text'>
-        <a
-          href='#about-me'
-          className='nav-tab__link'
-          onClick={scrollSmoothly}
-        >
+        <a href='#about-me' className='nav-tab__link' onClick={scrollSmoothly}>
           Студент
         </a>
       </li>
