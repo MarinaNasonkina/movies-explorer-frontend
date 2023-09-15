@@ -56,13 +56,13 @@ export default function SideNavBar({ isPathMain }) {
               </NavLink>
             </li>
           </ul>
-          <Link to='/profile' className='side-nav__profile'>
+          <Link
+            to='/profile'
+            className={`side-nav__profile${
+              isPathMain ? ' side-nav__profile_type_promo' : ''
+            }`}
+          >
             Аккаунт
-            <div
-              className={`side-nav__profile-icon${
-                isPathMain ? ' side-nav__profile-icon_type_promo' : ''
-              }`}
-            ></div>
           </Link>
         </div>
       </div>

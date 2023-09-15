@@ -38,7 +38,6 @@
   flex-grow: 1;
   padding: 0;
   border: none;
-  outline: none;
   font-size: 18px;
   font-weight: var(--regular);
   line-height: 20px;
@@ -47,6 +46,11 @@
 
 .search__field::placeholder {
   color: var(--text-label);
+}
+
+.search__field:focus {
+  border-radius: 6px;
+  outline: 1px solid var(--outline-form-field);
 }
 
 .search__btn {

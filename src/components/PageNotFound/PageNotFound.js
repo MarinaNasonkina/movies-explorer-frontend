@@ -11,11 +11,13 @@ export default function PageNotFound() {
 
   return (
     <main className='page-not-found'>
-      <h1 className='page-not-found__title'>404</h1>
-      <p className='page-not-found__subtitle'>Страница не найдена</p>
-      <Link onClick={goBack} to='#' className='page-not-found__link'>
-        Назад
-      </Link>
+      <section className='page-not-found__container'>
+        <h1 className='page-not-found__title'>404</h1>
+        <p className='page-not-found__subtitle'>Страница не найдена</p>
+        <Link onClick={goBack} to='#' className='page-not-found__link'>
+          Назад
+        </Link>
+      </section>
     </main>
   );
 }

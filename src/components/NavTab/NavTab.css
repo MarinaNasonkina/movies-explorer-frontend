@@ -1,12 +1,18 @@
 .nav-tab {
-  margin: 0;
-  padding: 25px 0;
+  box-sizing: border-box;
+  padding: 25px 10px;
   width: 100%;
+  background: var(--bg-navtab);
+}
+
+.nav-tab__menu {
+  margin: 0;
+  padding: 0;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 40.5px;
   list-style-type: none;
-  background: var(--bg-navtab);
 }
 
 .nav-tab__text {
@@ -30,7 +36,7 @@
 }
 
 @media screen and (max-width: 730px) {
-  .nav-tab {
+  .nav-tab__menu {
     gap: 24.5px;
   }
 

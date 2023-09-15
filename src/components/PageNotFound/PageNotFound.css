@@ -1,37 +1,36 @@
 .page-not-found {
-  position: relative;
   width: 100vw;
   height: 100vh;
-  min-height: 320px;
+  min-height: 700px;
+}
+
+.page-not-found__container {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
 }
 
 .page-not-found__title {
-  margin: 0;
+  margin: 35.2vh 0 0;
   font-size: var(--h1-404);
   font-weight: var(--regular);
-  line-height: normal;
+  line-height: 169px;
 }
 
 .page-not-found__subtitle {
   margin: 0;
-  padding-bottom: 16px;
   font-size: 16px;
   font-weight: var(--regular);
-  line-height: normal;
+  line-height: 19px;
 }
 
 .page-not-found__link {
-  position: absolute;
-  bottom: 60px;
-  left: auto;
+  margin: auto 0 60px;
   font-size: 14px;
   font-weight: var(--regular);
-  line-height: normal;
+  line-height: 17px;
   color: var(--text-main);
   text-decoration: none;
   cursor: pointer;
@@ -44,34 +43,40 @@
   }
 }
 
-@media screen and (max-width: 1024px) and (orientation: portrait) {
-  .page-not-found__link {
-    bottom: 222px;
+@media screen and (max-width: 1200px) {
+  .page-not-found__title {
+    margin: 39.84vh 0 0;
   }
-}
 
-@media screen and (max-height: 400px) and (orientation: landscape) {
   .page-not-found__link {
-    bottom: 30px;
+    margin: 179px 0 auto;
   }
 }
 
 @media screen and (max-width: 600px) {
   .page-not-found {
+    min-height: 480px;
+  }
+
+  .page-not-found__container {
     gap: 10px;
   }
 
   .page-not-found__title {
+    margin: 42.17vh 0 0;
     font-size: var(--h1-404-mobile);
+    line-height: 97px;
   }
 
   .page-not-found__subtitle {
     padding-bottom: 0px;
     font-size: 12px;
+    line-height: 15px;
   }
 
   .page-not-found__link {
-    bottom: 30px;
+    margin: auto 0 30px;
     font-size: 12px;
+    line-height: 15px;
   }
 }

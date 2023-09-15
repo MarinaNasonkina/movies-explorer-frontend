@@ -3,8 +3,6 @@ import { useState } from 'react';
 import Button from '../Button/Button';
 
 import { DB_URL } from '../../vendor/beatfilm-movies';
-import savedBtn from '../../images/saved.svg';
-import deleteBtn from '../../images/delete.svg';
 
 import './MoviesCard.css';
 
@@ -43,18 +41,22 @@ export default function MoviesCard({ movie, isPathMovies }) {
         <Button
           type='button'
           className={`card__save-btn${isSaved ? ' card__save-btn_active' : ''}`}
+          ariaLabel={`${
+            isSaved
+              ? 'Удалить фильм из сохраненных.'
+              : 'Добавить фильм в сохраненные.'
+          }`}
           onClick={toggleIsSaved}
         >
-          {isSaved ? <img src={savedBtn} alt='Фильм сохранен.' /> : 'Сохранить'}
+          {isSaved ? '' : 'Сохранить'}
         </Button>
       ) : (
         <Button
           type='button'
           className='card__delete-btn'
+          ariaLabel='Удалить фильм из сохраненных.'
           onClick={handleDelete}
-        >
-          <img src={deleteBtn} alt='Удалить фильм из сохраненных.' />
-        </Button>
+        />
       )}
     </article>
   );

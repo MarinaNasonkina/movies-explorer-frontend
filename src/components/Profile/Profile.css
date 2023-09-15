@@ -53,6 +53,7 @@
 
 .profile__field {
   flex-grow: 1;
+  margin-left: 5px;
   padding: 0;
   text-align: right;
   font-size: 11px;
@@ -74,8 +75,9 @@
   color: var(--text-label);
 }
 
-.profile__field:focus-visible {
-  outline: 1px solid var(--border-light);
+.profile__field:focus {
+  border-radius: 3px;
+  outline: 2px solid var(--outline-form-field);
 }
 
 .profile__field-err {

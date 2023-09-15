@@ -5,6 +5,8 @@ export default function AuthField({
   placeholder,
   name,
   type,
+  value,
+  handleChange,
   error,
   ...validationProps
 }) {
@@ -16,6 +18,8 @@ export default function AuthField({
         placeholder={placeholder}
         name={name}
         type={type}
+        value={value || ''}
+        onChange={handleChange}
         {...validationProps}
       />
       <span className='auth-field__err'>{error}</span>

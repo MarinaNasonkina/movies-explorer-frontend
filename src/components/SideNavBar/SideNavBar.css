@@ -95,14 +95,15 @@
   transition: opacity .2s ease-out;
 }
 
-.side-nav__profile-icon {
+.side-nav__profile::after {
+  content: '';
   width: 30px;
   height: 30px;
   border-radius: 6px;
   background: url('../../images/account-main.svg') var(--btn-movies) no-repeat center;
 }
 
-.side-nav__profile-icon_type_promo {
+.side-nav__profile_type_promo::after {
   background: url('../../images/account-landing.svg') var(--btn-main) no-repeat center;
 }
 

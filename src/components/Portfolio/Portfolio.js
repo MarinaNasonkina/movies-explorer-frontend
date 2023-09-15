@@ -3,7 +3,7 @@ import './Portfolio.css';
 export default function Portfolio() {
   return (
     <section className='portfolio'>
-      <h4 className='portfolio__title'>Портфолио</h4>
+      <h3 className='portfolio__title'>Портфолио</h3>
       <ul className='portfolio__list'>
         <li className='portfolio__text'>
           <a
@@ -13,7 +13,6 @@ export default function Portfolio() {
             rel='noreferrer'
           >
             Статичный сайт
-            <div className='portfolio__link-icon'></div>
           </a>
         </li>
         <li className='portfolio__text'>
@@ -24,7 +23,6 @@ export default function Portfolio() {
             rel='noreferrer'
           >
             Адаптивный сайт
-            <div className='portfolio__link-icon'></div>
           </a>
         </li>
         <li className='portfolio__text'>
@@ -35,7 +33,6 @@ export default function Portfolio() {
             rel='noreferrer'
           >
             Одностраничное приложение
-            <div className='portfolio__link-icon'></div>
           </a>
         </li>
       </ul>

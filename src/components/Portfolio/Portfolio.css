@@ -47,7 +47,9 @@
   transition: opacity .2s ease-out;
 }
 
-.portfolio__link-icon {
+.portfolio__link::after {
+  content: '';
+  flex-shrink: 0;
   width: 29px;
   height: 50px;
   background: url('../../images/link.svg') no-repeat top 19px right 6px;
@@ -65,7 +67,7 @@
     letter-spacing: -1.12px;
   }
 
-  .portfolio__link-icon {
+  .portfolio__link::after {
     background-size: 60%;
   }
 }
@@ -91,7 +93,7 @@
     border-bottom: 1px solid var(--separator-light-mobile);
   }
 
-  .portfolio__link-icon {
+  .portfolio__link::after {
     height: 28px;
     background-size: 38%;
     background-position: top 7px right 4px;

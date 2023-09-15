@@ -1,14 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Header from '../Header/Header';
 import Button from '../Button/Button';
 
+import useFormValidator from '../../utils/useFormValidator';
+
 import './Profile.css';
 
 export default function Profile({ loggedIn, user, onLogOut }) {
-  const [isEdited, setIsEdited] = useState(false);
   const navigate = useNavigate();
+  const [isEdited, setIsEdited] = useState(false);
+  const {
+    values,
+    setValues,
+    errors,
+    isDisabled,
+    handleChange,
+  } = useFormValidator();
+  const { name, email } = values;
 
   function toggleEditing() {
     setIsEdited(!isEdited);
@@ -23,6 +33,13 @@ export default function Profile({ loggedIn, user, onLogOut }) {
     onLogOut();
     navigate('/');
   }
+
+  useEffect(() => {
+    setValues({
+      name: user.name,
+      email: user.email,
+    });
+  }, [setValues, user]);
 
   return (
     <>
@@ -43,38 +60,44 @@ export default function Profile({ loggedIn, user, onLogOut }) {
                 <input
                   disabled={!isEdited}
                   className='profile__field'
-                  defaultValue={user.name}
                   placeholder='Введите имя'
                   name='name'
                   type='text'
+                  value={name || ''}
+                  onChange={handleChange}
                   minLength='2'
                   maxLength='30'
                   autoComplete='name'
                   required
                 />
               </label>
-              <span className='profile__field-err'></span>
+              <span className='profile__field-err'>{errors.name}</span>
               <label className='profile__label'>
                 E-mail
                 <input
                   disabled={!isEdited}
                   className='profile__field'
-                  defaultValue={user.email}
                   placeholder='Введите e-mail'
                   name='email'
                   type='email'
+                  value={email || ''}
+                  onChange={handleChange}
                   minLength='6'
                   maxLength='64'
                   autoComplete='email'
                   required
                 />
               </label>
-              <span className='profile__field-err'></span>
+              <span className='profile__field-err'>{errors.email}</span>
             </div>
             {isEdited ? (
               <div className='profile__btns profile__btns_type_submit'>
                 <span className='profile__submit-err'></span>
-                <Button type='submit' className='profile__submit-btn'>
+                <Button
+                  type='submit'
+                  isDisabled={isDisabled}
+                  className='profile__submit-btn'
+                >
                   Сохранить
                 </Button>
               </div>

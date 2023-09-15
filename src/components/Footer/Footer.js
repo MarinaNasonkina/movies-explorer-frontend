@@ -3,9 +3,9 @@ import './Footer.css';
 export default function Footer() {
   return (
     <footer className='footer'>
-      <p className='footer__text footer__text_type_title'>
+      <h2 className='footer__text footer__text_type_title'>
         Учебный проект Яндекс.Практикум х BeatFilm.
-      </p>
+      </h2>
       <div className='footer__container'>
         <p className='footer__text'>&copy; 2023</p>
         <ul className='footer__list'>

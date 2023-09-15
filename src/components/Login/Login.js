@@ -3,7 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import Auth from '../Auth/Auth';
 import AuthField from '../AuthField/AuthField';
 
+import useFormValidator from '../../utils/useFormValidator';
+
 export default function Login({ onLogin }) {
+  const { values, errors, isDisabled, handleChange } = useFormValidator();
+  const { email, password } = values;
+
   const navigate = useNavigate();
 
   function handleSubmit(e) {
@@ -17,6 +22,7 @@ export default function Login({ onLogin }) {
       title='Рады видеть!'
       formName='sign-in'
       onSubmit={handleSubmit}
+      isDisabled={isDisabled}
       submitText='Войти'
       subtitleText='Ещё не зарегистрированы?'
       linkPath='/signup'
@@ -27,7 +33,9 @@ export default function Login({ onLogin }) {
         placeholder='Введите e-mail'
         name='email'
         type='email'
-        error=''
+        value={email}
+        handleChange={handleChange}
+        error={errors.email}
         minLength='6'
         maxLength='64'
         autoComplete='email'
@@ -38,10 +46,12 @@ export default function Login({ onLogin }) {
         placeholder='Введите пароль'
         name='password'
         type='password'
-        error=''
+        value={password}
+        handleChange={handleChange}
+        error={errors.password}
         minLength='6'
         maxLength='40'
-        autoComplete='new-password'
+        autoComplete='current-password'
         required
       />
     </Auth>

@@ -1,6 +1,5 @@
-import { NavLink, Link, useNavigate } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
-import Button from '../Button/Button';
 import SideNavBar from '../SideNavBar/SideNavBar';
 
 import './Navigation.css';
@@ -8,12 +7,6 @@ import './Navigation.css';
 export default function Navigation({ loggedIn, isPathMain }) {
   const addLinkActive = ({ isActive }) =>
     `navigation__link${isActive ? ' navigation__link_active' : ''}`;
-
-  const navigate = useNavigate();
-
-  function goToSignIn() {
-    navigate('/signin');
-  }
 
   return loggedIn ? (
     <nav className='navigation'>
@@ -29,13 +22,13 @@ export default function Navigation({ loggedIn, isPathMain }) {
           </NavLink>
         </li>
       </ul>
-      <Link to='/profile' className='navigation__profile'>
+      <Link
+        to='/profile'
+        className={`navigation__profile${
+          isPathMain ? ' navigation__profile_type_promo' : ''
+        }`}
+      >
         Аккаунт
-        <div
-          className={`navigation__profile-icon${
-            isPathMain ? ' navigation__profile-icon_type_promo' : ''
-          }`}
-        ></div>
       </Link>
       <SideNavBar isPathMain={isPathMain} />
     </nav>
@@ -44,9 +37,12 @@ export default function Navigation({ loggedIn, isPathMain }) {
       <Link to='/signup' className='navigation__auth-link'>
         Регистрация
       </Link>
-      <Button type='button' className='navigation__btn' onClick={goToSignIn}>
+      <Link
+        to='/signin'
+        className='navigation__auth-link navigation__auth-link_type_signin'
+      >
         Войти
-      </Button>
+      </Link>
     </nav>
   );
 }

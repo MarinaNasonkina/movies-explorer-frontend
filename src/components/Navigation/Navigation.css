@@ -47,14 +47,15 @@
   transition: opacity .2s ease-out;
 }
 
-.navigation__profile-icon {
+.navigation__profile::after {
+  content: '';
   width: 30px;
   height: 30px;
   border-radius: 6px;
   background: url('../../images/account-main.svg') var(--btn-movies) no-repeat center;
 }
 
-.navigation__profile-icon_type_promo {
+.navigation__profile_type_promo::after {
   background: url('../../images/account-landing.svg') var(--btn-main) no-repeat center;
 }
 
@@ -68,11 +69,11 @@
   transition: opacity .2s ease-out;
 }
 
-.navigation__btn {
+.navigation__auth-link_type_signin {
   padding: 8px 20px;
-  font-size: 12px;
-  font-weight: var(--medium);
-  line-height: 16px;
+  border-radius: 3px;
+  color: var(--text-light);
+  background-color: var(--btn-main);
 }
 
 @media (any-hover: hover) {
@@ -105,8 +106,7 @@
     font-size: 10px;
   }
 
-  .navigation__btn {
+  .navigation__auth-link_type_signin {
     padding: 5px 12px;
-    font-size: 10px;
   }
 }
