@@ -1,0 +1,18 @@
+.landing-title {
+  margin: 0;
+  padding-bottom: 22px;
+  font-size: var(--h2-main);
+  font-weight: var(--regular);
+  line-height: 27px;
+  letter-spacing: -0.88px;
+  border-bottom: 1px solid var(--border-main);
+}
+
+@media screen and (max-width: 600px) {
+  .landing-title {
+    padding-bottom: 27px;
+    font-size: var(--h2-main-mobile);
+    line-height: 22px;
+    letter-spacing: -0.72px;
+  }
+}

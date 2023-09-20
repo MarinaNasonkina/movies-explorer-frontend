@@ -1,0 +1,15 @@
+.btn {
+  padding: 0;
+  border: none;
+  border-radius: 3px;
+  color: var(--text-light);
+  background-color: var(--btn-main);
+  cursor: pointer;
+  transition: opacity .2s ease-out;
+}
+
+@media (any-hover: hover) {
+  .btn:hover {
+    opacity: .8;
+  }
+}

@@ -1,0 +1,22 @@
+.saved-movies {
+  min-height: calc(100vh - 246px);
+  max-width: 1140px;
+  padding: 0 calc((100% - 1140px) / 2) 79px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .saved-movies {
+    max-width: 100%;
+    padding: 0 30px 94px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .saved-movies {
+    min-height: calc(100vh - 327px);
+    padding: 0 10px 69px;
+  }
+}
