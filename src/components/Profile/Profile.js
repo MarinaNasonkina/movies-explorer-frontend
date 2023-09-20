@@ -1,14 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Header from '../Header/Header';
 import Button from '../Button/Button';
 
+import CurrentUserContext from '../../contexts/CurrentUserContext';
+
 import useFormValidator from '../../utils/useFormValidator';
 
 import './Profile.css';
 
-export default function Profile({ loggedIn, user, onLogOut }) {
+export default function Profile({ loggedIn, onLogOut }) {
+  const user = useContext(CurrentUserContext);
   const navigate = useNavigate();
   const [isEdited, setIsEdited] = useState(false);
   const {

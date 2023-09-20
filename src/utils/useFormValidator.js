@@ -3,7 +3,7 @@ import { useState } from 'react';
 export default function useFormValidator() {
   const [values, setValues] = useState({});
   const [errors, setErrors] = useState({});
-  const [isDisabled, setIsDisabled] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(true);
 
   function handleChange(e) {
     setValues({ ...values, [e.target.name]: e.target.value });
