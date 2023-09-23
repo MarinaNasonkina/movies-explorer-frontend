@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import Logo from '../Logo/Logo';
@@ -9,6 +10,7 @@ export default function Auth({
   title,
   formName,
   onSubmit,
+  submitErr,
   isDisabled,
   submitText,
   subtitleText,
@@ -16,6 +18,17 @@ export default function Auth({
   linkText,
   children,
 }) {
+  const [isErrVisible, setIsErrVisible] = useState(false);
+
+  useEffect(() => {
+    if (submitErr) {
+      setIsErrVisible(true);
+      setTimeout(() => {
+        setIsErrVisible(false);
+      }, 2700);
+    }
+  }, [submitErr]);
+
   return (
     <main className='auth'>
       <section className='auth__container'>
@@ -30,7 +43,13 @@ export default function Auth({
         >
           <div className='auth__fields'>{children}</div>
           <div className='auth__submit-box'>
-            <span className='auth__submit-err'></span>
+            <span
+              className={`auth__submit-err${
+                isErrVisible ? ' auth__submit-err_visible' : ''
+              }`}
+            >
+              {submitErr}
+            </span>
             <Button
               type='submit'
               isDisabled={isDisabled}

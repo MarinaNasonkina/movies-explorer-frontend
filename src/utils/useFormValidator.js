@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { MSG_NAME_FORMAT, MSG_EMAIL_FORMAT } from './constants';
+
 export default function useFormValidator() {
   const [values, setValues] = useState({});
   const [errors, setErrors] = useState({});
@@ -7,7 +9,14 @@ export default function useFormValidator() {
 
   function handleChange(e) {
     setValues({ ...values, [e.target.name]: e.target.value });
-    setErrors({ ...errors, [e.target.name]: e.target.validationMessage });
+
+    if (e.target.validity.patternMismatch) {
+      const formatMessage = e.target.name === 'name' ? MSG_NAME_FORMAT : MSG_EMAIL_FORMAT;
+      setErrors({ ...errors, [e.target.name]: formatMessage });
+    } else {
+      setErrors({ ...errors, [e.target.name]: e.target.validationMessage });
+    }
+
     setIsDisabled(!e.target.form.checkValidity());
   }
 

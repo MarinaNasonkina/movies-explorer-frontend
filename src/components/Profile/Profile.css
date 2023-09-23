@@ -96,26 +96,33 @@
 }
 
 .profile__btns {
-  padding-top: 31px;
+  padding-top: 5px;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.profile__btns_type_submit {
-  padding-top: 0;
-}
-
-.profile__submit-err {
+.profile__submit-msg {
   min-height: 18px;
   text-align: center;
   font-size: 11px;
   font-weight: var(--regular);
   line-height: 13px;
+  color: var(--text-success);
+  opacity: 0;
+  transition: opacity .2s ease-out;
+}
+
+.profile__submit-msg_visible {
+  opacity: 1;
+}
+
+.profile__submit-msg_type_err {
   color: var(--text-accent);
 }
 
 .profile__submit-btn {
+  margin-bottom: 3px;
   padding: 13px 0 15px;
   font-size: 14px;
   font-weight: var(--medium);

@@ -1,20 +1,30 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Auth from '../Auth/Auth';
 import AuthField from '../AuthField/AuthField';
 
+import mainApi from '../../utils/MainApi';
 import useFormValidator from '../../utils/useFormValidator';
+import handleErr from '../../utils/handleErr';
 
 export default function Login({ onLogin }) {
+  const navigate = useNavigate();
+  const [submitErr, setSubmitErr] = useState('');
   const { values, errors, isDisabled, handleChange } = useFormValidator();
   const { email, password } = values;
 
-  const navigate = useNavigate();
-
   function handleSubmit(e) {
     e.preventDefault();
-    onLogin();
-    navigate('/movies', { replace: true });
+    mainApi
+      .login(email, password)
+      .then((userData) => {
+        onLogin(userData);
+        navigate('/movies', { replace: true });
+      })
+      .catch((err) => {
+        handleErr(err, setSubmitErr);
+      });
   }
 
   return (
@@ -22,6 +32,7 @@ export default function Login({ onLogin }) {
       title='Рады видеть!'
       formName='sign-in'
       onSubmit={handleSubmit}
+      submitErr={submitErr}
       isDisabled={isDisabled}
       submitText='Войти'
       subtitleText='Ещё не зарегистрированы?'
@@ -36,6 +47,7 @@ export default function Login({ onLogin }) {
         value={email}
         handleChange={handleChange}
         error={errors.email}
+        pattern='[\w.\-]+@[a-zA-Z0-9\-]+\.[a-z]{2,}'
         minLength='6'
         maxLength='64'
         autoComplete='email'

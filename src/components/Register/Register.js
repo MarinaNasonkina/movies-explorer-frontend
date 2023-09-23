@@ -1,20 +1,30 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Auth from '../Auth/Auth';
 import AuthField from '../AuthField/AuthField';
 
+import mainApi from '../../utils/MainApi';
 import useFormValidator from '../../utils/useFormValidator';
+import handleErr from '../../utils/handleErr';
 
 export default function Register({ onRegister }) {
+  const navigate = useNavigate();
+  const [submitErr, setSubmitErr] = useState('');
   const { values, errors, isDisabled, handleChange } = useFormValidator();
   const { name, email, password } = values;
 
-  const navigate = useNavigate();
-
   function handleSubmit(e) {
     e.preventDefault();
-    onRegister();
-    navigate('/movies', { replace: true });
+    mainApi
+      .register(name, email, password)
+      .then((userData) => {
+        onRegister(userData);
+        navigate('/movies', { replace: true });
+      })
+      .catch((err) => {
+        handleErr(err, setSubmitErr);
+      });
   }
 
   return (
@@ -22,6 +32,7 @@ export default function Register({ onRegister }) {
       title='Добро пожаловать!'
       formName='sign-up'
       onSubmit={handleSubmit}
+      submitErr={submitErr}
       isDisabled={isDisabled}
       submitText='Зарегистрироваться'
       subtitleText='Уже зарегистрированы?'
@@ -36,6 +47,7 @@ export default function Register({ onRegister }) {
         value={name}
         handleChange={handleChange}
         error={errors.name}
+        pattern='^[a-zA-Zа-яА-ЯёЁ\- ]+$'
         minLength='2'
         maxLength='30'
         autoComplete='name'
@@ -49,6 +61,7 @@ export default function Register({ onRegister }) {
         value={email}
         handleChange={handleChange}
         error={errors.email}
+        pattern='[\w.\-]+@[a-zA-Z0-9\-]+\.[a-z]{2,}'
         minLength='6'
         maxLength='64'
         autoComplete='email'
