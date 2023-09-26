@@ -53,6 +53,22 @@
   outline: 1px solid var(--outline-form-field);
 }
 
+.search__err {
+  position: absolute;
+  bottom: -13px;
+  left: calc(50% - 198px / 2);
+  font-size: 13px;
+  font-weight: var(--regular);
+  line-height: 15px;
+  color: var(--text-accent);
+  opacity: 0;
+  transition: opacity .2s ease-out;
+}
+
+.search__err_visible {
+  opacity: 1;
+}
+
 .search__btn {
   flex-shrink: 0;
   margin-left: 21.35px;
@@ -111,5 +127,9 @@
   .search__field {
     min-width: 182px;
     font-size: 14px;
+  }
+
+  .search__err {
+    bottom: 5px;
   }
 }

@@ -15,8 +15,9 @@ import CurrentUserContext from '../../contexts/CurrentUserContext';
 import mainApi from '../../utils/MainApi';
 
 export default function App() {
-  const [currentUser, setCurrentUser] = useState({});
   const [loggedIn, setLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState({});
+  const [savedMovies, setSavedMovies] = useState([]);
 
   function handleLogin(userData) {
     setLoggedIn(true);
@@ -26,6 +27,7 @@ export default function App() {
   function handleLogOut() {
     setLoggedIn(false);
     setCurrentUser({});
+    localStorage.clear();
   }
 
   function checkToken() {
@@ -39,10 +41,49 @@ export default function App() {
       });
   }
 
+  function getSavedMovies() {
+    mainApi
+      .getSavedMovies()
+      .then((movies) => {
+        setSavedMovies(movies);
+      })
+      .catch((err) => console.log(`Произошла ошибка: ${err}.`));
+  }
+
+  function saveMovie(movie) {
+    mainApi
+      .saveMovie(movie)
+      .then((movie) => {
+        setSavedMovies([...savedMovies, movie]);
+      })
+      .catch((err) => console.log(`Произошла ошибка: ${err}.`));
+  }
+
+  function deleteMovie(movie) {
+    const movieId = savedMovies.find((item) => movie.movieId === item.movieId)._id;
+
+    mainApi
+      .deleteMovie(movieId)
+      .then(() => {
+        setSavedMovies((movies) =>
+          movies.filter((oldMovie) => oldMovie._id !== movieId)
+        );
+      })
+      .catch((err) => console.log(`Произошла ошибка: ${err}.`));
+  }
+
   useEffect(() => {
     checkToken();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if (loggedIn) getSavedMovies();
+  }, [loggedIn]);
+
+  useEffect(() => {
+    localStorage.setItem('savedMovies', JSON.stringify(savedMovies));
+  }, [savedMovies]);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -50,11 +91,26 @@ export default function App() {
         <Route path='/' element={<Main loggedIn={loggedIn} />} />
         <Route
           path='/movies'
-          element={<ProtectedRoute element={Movies} loggedIn={loggedIn} />}
+          element={
+            <ProtectedRoute
+              element={Movies}
+              loggedIn={loggedIn}
+              savedMovies={savedMovies}
+              onSave={saveMovie}
+              onDelete={deleteMovie}
+            />
+          }
         />
         <Route
           path='/saved-movies'
-          element={<ProtectedRoute element={SavedMovies} loggedIn={loggedIn} />}
+          element={
+            <ProtectedRoute
+              element={SavedMovies}
+              loggedIn={loggedIn}
+              savedMovies={savedMovies}
+              onDelete={deleteMovie}
+            />
+          }
         />
         <Route
           path='/profile'

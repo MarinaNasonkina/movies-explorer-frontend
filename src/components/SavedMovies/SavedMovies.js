@@ -1,33 +1,55 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Header from '../Header/Header';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
 
-import { savedMovies } from '../../vendor/beatfilm-movies';
+import filterMovies from '../../utils/filterMovies';
+import { MSG_NOT_FOUND } from '../../utils/constants';
 
 import './SavedMovies.css';
 
-export default function SavedMovies({ loggedIn }) {
-  const [isPreloading, setIsPreloading] = useState(false);
+export default function SavedMovies({ loggedIn, savedMovies, onDelete }) {
+  const [searchErr, setSearchErr] = useState('');
+  const [query, setQuery] = useState('');
+  const [isFiltered, setIsFiltered] = useState(false);
+  const [movies, setMovies] = useState(savedMovies);
 
-  function handleSearch() {
-    setIsPreloading(true);
-    setTimeout(() => {
-      setIsPreloading(false);
-    }, 2000);
+  function handleSearch(queryOptions) {
+    const filteredMovies = filterMovies(movies, queryOptions);
+
+    if (filteredMovies.length > 0) {
+      setSearchErr('');
+      setMovies(filteredMovies);
+    } else {
+      setSearchErr(MSG_NOT_FOUND);
+    }
   }
+
+  useEffect(() => {
+    setMovies((movies) =>
+      movies.filter((movie) => savedMovies.includes(movie))
+    );
+  }, [savedMovies]);
 
   return (
     <>
       <Header loggedIn={loggedIn} />
       <main className='saved-movies'>
-        <SearchForm onSearch={handleSearch} />
+        <SearchForm
+          query={query}
+          setQuery={setQuery}
+          isFiltered={isFiltered}
+          setIsFiltered={setIsFiltered}
+          onSearch={handleSearch}
+        />
         <MoviesCardList
           title='Сохранённые фильмы.'
-          isPreloading={isPreloading}
-          movies={savedMovies}
+          error={searchErr}
+          movies={movies}
+          savedMovies={savedMovies}
+          onDelete={onDelete}
         />
       </main>
       <Footer />

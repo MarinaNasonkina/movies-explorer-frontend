@@ -20,3 +20,16 @@ export const MSG_WRONG_USER_DATA = 'Вы ввели неправильный л�
 export const MSG_USER_EXISTS = 'Пользователь с таким email уже существует.';
 export const MSG_SERVER_ERR = 'На сервере произошла ошибка.';
 export const MSG_DEFAULT_ERR = 'Что-то пошло не так. Проверьте подключение к интернету и повторите попытку позднее.';
+
+export const SHORT_FILM_DURATION = 40;
+
+export const MSG_NOT_FOUND = 'Ничего не найдено.';
+export const MSG_SEARCH_ERR = 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.';
+
+export const MIN_WIDTH_DESKTOP = 1200;
+export const MIN_WIDTH_TABLET = 767;
+
+export const DEFAULT_OPTIONS = { displayed: 0, append: 0 };
+export const DESKTOP_OPTIONS = { displayed: 12, append: 3 };
+export const TABLET_OPTIONS = { displayed: 8, append: 2 };
+export const MOBILE_OPTIONS = { displayed: 5, append: 2 };

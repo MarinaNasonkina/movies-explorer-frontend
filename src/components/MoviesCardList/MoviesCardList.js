@@ -6,9 +6,25 @@ import Button from '../Button/Button';
 
 import './MoviesCardList.css';
 
-export default function MoviesCardList({ title, isPreloading, movies }) {
+export default function MoviesCardList({
+  title,
+  isPreloading,
+  error,
+  movies,
+  savedMovies,
+  moviesDisplayed,
+  onSave,
+  onDelete,
+  onMoreClick,
+}) {
   const location = useLocation();
   const isPathMovies = location.pathname === '/movies';
+
+  function checkIsSaved(movie) {
+    return savedMovies.some(
+      (savedMovie) => savedMovie.movieId === movie.movieId
+    );
+  }
 
   return (
     <section className='movies-list' aria-label={title}>
@@ -16,21 +32,35 @@ export default function MoviesCardList({ title, isPreloading, movies }) {
         <Preloader />
       ) : (
         <>
-          <div className='movies-list__container'>
-            {movies.map((movie) => (
-              <MoviesCard
-                key={movie.id}
-                movie={movie}
-                isPathMovies={isPathMovies}
-              />
-            ))}
-          </div>
-          {isPathMovies ? (
-            <Button type='button' className='movies-list__more-btn'>
-              Ещё
-            </Button>
+          {error ? (
+            <p className='movies-list__error'>{error}</p>
           ) : (
-            <></>
+            <>
+              <div className='movies-list__container'>
+                {movies
+                  .slice(0, moviesDisplayed)
+                  .map((movie) => (
+                    <MoviesCard
+                      key={movie.movieId}
+                      movie={movie}
+                      isMovieSaved={checkIsSaved(movie)}
+                      isPathMovies={isPathMovies}
+                      onSave={onSave}
+                      onDelete={onDelete}
+                    />
+                  ))
+                }
+              </div>
+              {isPathMovies && movies.length > moviesDisplayed && (
+                <Button
+                  type='button'
+                  className='movies-list__more-btn'
+                  onClick={onMoreClick}
+                >
+                  Ещё
+                </Button>
+              )}
+            </>
           )}
         </>
       )}
