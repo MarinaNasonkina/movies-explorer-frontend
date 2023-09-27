@@ -4,9 +4,13 @@
 
 ## Ссылки
 
+Pull-request: <https://github.com/MarinaNasonkina/movies-explorer-frontend/pull/2>
+
 IP: 158.160.54.130
 
 Frontend: <https://mn-movies-explorer.nomoredomainsicu.ru>
+
+Backend: <https://api.mn-movies-explorer.nomoredomainsicu.ru>
 
 Макет в Figma: [light-4](https://www.figma.com/file/6FMWkB94wE7KTkcCgUXtnC/light-1?type=design&node-id=1-2798&mode=design&t=NldvwfYgA54z4QjW-0)
 
