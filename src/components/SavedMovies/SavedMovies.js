@@ -17,7 +17,7 @@ export default function SavedMovies({ loggedIn, savedMovies, onDelete }) {
   const [movies, setMovies] = useState(savedMovies);
 
   function handleSearch(queryOptions) {
-    const filteredMovies = filterMovies(movies, queryOptions);
+    const filteredMovies = filterMovies(savedMovies, queryOptions);
 
     if (filteredMovies.length > 0) {
       setSearchErr('');

@@ -4,7 +4,7 @@
 
 ## Ссылки
 
-IP: 84.201.159.19
+IP: 158.160.54.130
 
 Frontend: <https://mn-movies-explorer.nomoredomainsicu.ru>
 
