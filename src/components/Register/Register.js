@@ -11,11 +11,13 @@ import handleErr from '../../utils/handleErr';
 export default function Register({ onRegister }) {
   const navigate = useNavigate();
   const [submitErr, setSubmitErr] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const { values, errors, isDisabled, handleChange } = useFormValidator();
   const { name, email, password } = values;
 
   function handleSubmit(e) {
     e.preventDefault();
+    setIsLoading(true);
     mainApi
       .register(name, email, password)
       .then((userData) => {
@@ -24,6 +26,9 @@ export default function Register({ onRegister }) {
       })
       .catch((err) => {
         handleErr(err, setSubmitErr);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
 
@@ -33,7 +38,7 @@ export default function Register({ onRegister }) {
       formName='sign-up'
       onSubmit={handleSubmit}
       submitErr={submitErr}
-      isDisabled={isDisabled}
+      isDisabled={isDisabled || isLoading}
       submitText='Зарегистрироваться'
       subtitleText='Уже зарегистрированы?'
       linkPath='/signin'
@@ -46,6 +51,7 @@ export default function Register({ onRegister }) {
         type='text'
         value={name}
         handleChange={handleChange}
+        isDisabled={isLoading}
         error={errors.name}
         pattern='^[a-zA-Zа-яА-ЯёЁ\- ]+$'
         minLength='2'
@@ -60,6 +66,7 @@ export default function Register({ onRegister }) {
         type='email'
         value={email}
         handleChange={handleChange}
+        isDisabled={isLoading}
         error={errors.email}
         pattern='[\w.\-]+@[a-zA-Z0-9\-]+\.[a-z]{2,}'
         minLength='6'
@@ -74,6 +81,7 @@ export default function Register({ onRegister }) {
         type='password'
         value={password}
         handleChange={handleChange}
+        isDisabled={isLoading}
         error={errors.password}
         minLength='6'
         maxLength='40'

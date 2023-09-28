@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Button from '../Button/Button';
 
@@ -6,26 +6,31 @@ import './MoviesCard.css';
 
 export default function MoviesCard({
   movie,
-  isMovieSaved,
+  savedMovies,
   isPathMovies,
   onSave,
   onDelete,
 }) {
-  const [isSaved, setIsSaved] = useState(isMovieSaved);
+  const [isSaved, setIsSaved] = useState(false);
 
-  function toggleIsSaved() {
-    setIsSaved(!isSaved);
+  function checkIsSaved(movie) {
+    return savedMovies.some(
+      (savedMovie) => savedMovie.movieId === movie.movieId
+    );
   }
 
   function handleSaveClick() {
     isSaved ? onDelete(movie) : onSave(movie);
-    toggleIsSaved();
   }
 
   function handleDelete() {
     onDelete(movie);
-    toggleIsSaved();
   }
+
+  useEffect(() => {
+    if (isPathMovies) setIsSaved(checkIsSaved(movie));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [savedMovies]);
 
   return (
     <article className='card'>

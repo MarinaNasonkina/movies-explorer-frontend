@@ -15,6 +15,7 @@ import CurrentUserContext from '../../contexts/CurrentUserContext';
 import mainApi from '../../utils/MainApi';
 
 export default function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
   const [savedMovies, setSavedMovies] = useState([]);
@@ -31,6 +32,7 @@ export default function App() {
   }
 
   function checkToken() {
+    setIsLoading(true);
     mainApi
       .getUserData()
       .then((userData) => {
@@ -38,16 +40,23 @@ export default function App() {
       })
       .catch((err) => {
         console.log(`Произошла ошибка: ${err}. Похоже, вы не авторизованы.`);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
 
   function getSavedMovies() {
+    setIsLoading(true);
     mainApi
       .getSavedMovies()
       .then((movies) => {
         setSavedMovies(movies);
       })
-      .catch((err) => console.log(`Произошла ошибка: ${err}.`));
+      .catch((err) => console.log(`Произошла ошибка: ${err}.`))
+      .finally(() => {
+        setIsLoading(false);
+      });
   }
 
   function saveMovie(movie) {
@@ -85,7 +94,9 @@ export default function App() {
     localStorage.setItem('savedMovies', JSON.stringify(savedMovies));
   }, [savedMovies]);
 
-  return (
+  return isLoading ? (
+    <></>
+  ) : (
     <CurrentUserContext.Provider value={currentUser}>
       <Routes>
         <Route path='/' element={<Main loggedIn={loggedIn} />} />

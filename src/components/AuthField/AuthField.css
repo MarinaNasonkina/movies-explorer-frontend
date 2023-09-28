@@ -30,6 +30,12 @@
   outline: 2px solid var(--outline-form-field);
 }
 
+.auth-field__input:disabled {
+  color: var(--text-disabled);
+  background-color: var(--fill-disabled);
+  cursor: default;
+}
+
 .auth-field__err {
   min-height: 10px;
   font-size: 10px;

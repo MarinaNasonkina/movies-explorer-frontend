@@ -108,7 +108,7 @@
   font-size: 11px;
   font-weight: var(--regular);
   line-height: 13px;
-  color: var(--text-success);
+  color: var(--text-main);
   opacity: 0;
   transition: opacity .2s ease-out;
 }

@@ -19,13 +19,8 @@ export default function Profile({ loggedIn, setCurrentUser, onLogOut }) {
   const [isEdited, setIsEdited] = useState(false);
   const [submitMsg, setSubmitMsg] = useState('');
   const [isMsgVisible, setIsMsgVisible] = useState(false);
-  const {
-    values,
-    setValues,
-    errors,
-    isDisabled,
-    handleChange
-  } = useFormValidator();
+  const [isLoading, setIsLoading] = useState(false);
+  const { values, setValues, errors, isDisabled, handleChange } = useFormValidator();
   const { name, email } = values;
   const isValueModified = name !== currentUser.name || email !== currentUser.email;
 
@@ -36,6 +31,7 @@ export default function Profile({ loggedIn, setCurrentUser, onLogOut }) {
 
   function handleSubmit(e) {
     e.preventDefault();
+    setIsLoading(true);
     mainApi
       .editUserData({ name, email })
       .then((userData) => {
@@ -48,18 +44,25 @@ export default function Profile({ loggedIn, setCurrentUser, onLogOut }) {
       })
       .catch((err) => {
         handleErr(err, setSubmitMsg);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
 
   function handleLogOut() {
+    setIsLoading(true);
     mainApi
       .logout()
       .then(() => {
         onLogOut();
-        navigate('/');
+        navigate('/', { replace: true });
       })
       .catch((err) => {
         handleErr(err, setSubmitMsg);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
 
@@ -96,7 +99,7 @@ export default function Profile({ loggedIn, setCurrentUser, onLogOut }) {
               <label className='profile__label'>
                 Имя
                 <input
-                  disabled={!isEdited}
+                  disabled={!isEdited || isLoading}
                   className='profile__field'
                   placeholder='Введите имя'
                   name='name'
@@ -114,7 +117,7 @@ export default function Profile({ loggedIn, setCurrentUser, onLogOut }) {
               <label className='profile__label'>
                 E-mail
                 <input
-                  disabled={!isEdited}
+                  disabled={!isEdited || isLoading}
                   className='profile__field'
                   placeholder='Введите e-mail'
                   name='email'
@@ -141,7 +144,7 @@ export default function Profile({ loggedIn, setCurrentUser, onLogOut }) {
               {isEdited ? (
                 <Button
                   type='submit'
-                  isDisabled={isDisabled || !isValueModified}
+                  isDisabled={isDisabled || !isValueModified || isLoading}
                   className='profile__submit-btn'
                 >
                   Сохранить

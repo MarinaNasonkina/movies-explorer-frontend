@@ -11,11 +11,13 @@ import handleErr from '../../utils/handleErr';
 export default function Login({ onLogin }) {
   const navigate = useNavigate();
   const [submitErr, setSubmitErr] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const { values, errors, isDisabled, handleChange } = useFormValidator();
   const { email, password } = values;
 
   function handleSubmit(e) {
     e.preventDefault();
+    setIsLoading(true);
     mainApi
       .login(email, password)
       .then((userData) => {
@@ -24,6 +26,9 @@ export default function Login({ onLogin }) {
       })
       .catch((err) => {
         handleErr(err, setSubmitErr);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
 
@@ -33,7 +38,7 @@ export default function Login({ onLogin }) {
       formName='sign-in'
       onSubmit={handleSubmit}
       submitErr={submitErr}
-      isDisabled={isDisabled}
+      isDisabled={isDisabled || isLoading}
       submitText='Войти'
       subtitleText='Ещё не зарегистрированы?'
       linkPath='/signup'
@@ -46,6 +51,7 @@ export default function Login({ onLogin }) {
         type='email'
         value={email}
         handleChange={handleChange}
+        isDisabled={isLoading}
         error={errors.email}
         pattern='[\w.\-]+@[a-zA-Z0-9\-]+\.[a-z]{2,}'
         minLength='6'
@@ -60,6 +66,7 @@ export default function Login({ onLogin }) {
         type='password'
         value={password}
         handleChange={handleChange}
+        isDisabled={isLoading}
         error={errors.password}
         minLength='6'
         maxLength='40'

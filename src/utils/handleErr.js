@@ -4,6 +4,7 @@ import {
   CODE_CONFLICT,
   CODE_INTERNAL_SERVER_ERR,
   MSG_WRONG_USER_DATA,
+  MSG_WRONG_TOKEN,
   MSG_USER_EXISTS,
   MSG_BAD_LOGIN,
   MSG_BAD_REGISTER,
@@ -26,7 +27,9 @@ export default function handleErr(err, setMessage) {
       }
       break;
     case CODE_UNAUTHORIZED:
-      setMessage(MSG_WRONG_USER_DATA);
+      pathname === '/signin'
+        ? setMessage(MSG_WRONG_USER_DATA)
+        : setMessage(MSG_WRONG_TOKEN);
       break;
     case CODE_CONFLICT:
       setMessage(MSG_USER_EXISTS);

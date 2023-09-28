@@ -20,12 +20,6 @@ export default function MoviesCardList({
   const location = useLocation();
   const isPathMovies = location.pathname === '/movies';
 
-  function checkIsSaved(movie) {
-    return savedMovies.some(
-      (savedMovie) => savedMovie.movieId === movie.movieId
-    );
-  }
-
   return (
     <section className='movies-list' aria-label={title}>
       {isPreloading ? (
@@ -43,7 +37,7 @@ export default function MoviesCardList({
                     <MoviesCard
                       key={movie.movieId}
                       movie={movie}
-                      isMovieSaved={checkIsSaved(movie)}
+                      savedMovies={savedMovies}
                       isPathMovies={isPathMovies}
                       onSave={onSave}
                       onDelete={onDelete}

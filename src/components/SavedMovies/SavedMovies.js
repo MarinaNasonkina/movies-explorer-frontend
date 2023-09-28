@@ -14,24 +14,33 @@ export default function SavedMovies({ loggedIn, savedMovies, onDelete }) {
   const [searchErr, setSearchErr] = useState('');
   const [query, setQuery] = useState('');
   const [isFiltered, setIsFiltered] = useState(false);
-  const [movies, setMovies] = useState(savedMovies);
+  const [movies, setMovies] = useState([]);
 
   function handleSearch(queryOptions) {
     const filteredMovies = filterMovies(savedMovies, queryOptions);
 
-    if (filteredMovies.length > 0) {
-      setSearchErr('');
-      setMovies(filteredMovies);
-    } else {
-      setSearchErr(MSG_NOT_FOUND);
-    }
+    setMovies(filteredMovies);
   }
 
   useEffect(() => {
-    setMovies((movies) =>
-      movies.filter((movie) => savedMovies.includes(movie))
-    );
+    if (query.length && movies.length) {
+      setMovies((movies) =>
+        movies.filter((movie) => savedMovies.includes(movie))
+      );
+    } else {
+      setMovies(savedMovies);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [savedMovies]);
+
+  useEffect(() => {
+    if (query.trim() && movies.length === 0) {
+      setSearchErr(MSG_NOT_FOUND);
+    } else {
+      setSearchErr('');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [movies]);
 
   return (
     <>
