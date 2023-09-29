@@ -1,21 +1,36 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Button from '../Button/Button';
 
-import { DB_URL } from '../../vendor/beatfilm-movies';
-
 import './MoviesCard.css';
 
-export default function MoviesCard({ movie, isPathMovies }) {
+export default function MoviesCard({
+  movie,
+  savedMovies,
+  isPathMovies,
+  onSave,
+  onDelete,
+}) {
   const [isSaved, setIsSaved] = useState(false);
 
-  function toggleIsSaved() {
-    setIsSaved(!isSaved);
+  function checkIsSaved(movie) {
+    return savedMovies.some(
+      (savedMovie) => savedMovie.movieId === movie.movieId
+    );
   }
 
-  function handleDelete(e) {
-    e.target.closest('.card').remove();
+  function handleSaveClick() {
+    isSaved ? onDelete(movie) : onSave(movie);
   }
+
+  function handleDelete() {
+    onDelete(movie);
+  }
+
+  useEffect(() => {
+    if (isPathMovies) setIsSaved(checkIsSaved(movie));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [savedMovies]);
 
   return (
     <article className='card'>
@@ -26,7 +41,7 @@ export default function MoviesCard({ movie, isPathMovies }) {
         className='card__trailer'
       >
         <img
-          src={`${DB_URL}${movie.image.url}`}
+          src={movie.image}
           alt={movie.description}
           className='card__image'
         />
@@ -46,7 +61,7 @@ export default function MoviesCard({ movie, isPathMovies }) {
               ? 'Удалить фильм из сохраненных.'
               : 'Добавить фильм в сохраненные.'
           }`}
-          onClick={toggleIsSaved}
+          onClick={handleSaveClick}
         >
           {isSaved ? '' : 'Сохранить'}
         </Button>

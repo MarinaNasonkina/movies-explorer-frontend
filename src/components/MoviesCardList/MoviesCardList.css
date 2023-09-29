@@ -7,6 +7,17 @@
   gap: 61px;
 }
 
+.movies-list__error {
+  margin: 0;
+  padding: 0;
+  max-width: 550px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: var(--medium);
+  line-height: 21px;
+  color: var(--text-label);
+}
+
 .movies-list__container {
   width: 100%;
   display: grid;
@@ -44,6 +55,11 @@
 @media screen and (max-width: 767px) {
   .movies-list {
     padding: 50px 0 81px;
+  }
+
+  .movies-list__error {
+    max-width: 300px;
+    font-size: 14px;
   }
 
   .movies-list__container {

@@ -7,6 +7,7 @@ export default function AuthField({
   type,
   value,
   handleChange,
+  isDisabled,
   error,
   ...validationProps
 }) {
@@ -20,6 +21,7 @@ export default function AuthField({
         type={type}
         value={value || ''}
         onChange={handleChange}
+        disabled={isDisabled}
         {...validationProps}
       />
       <span className='auth-field__err'>{error}</span>
