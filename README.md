@@ -2,21 +2,11 @@
 
 **Movies Explorer — сервис, зарегистрировавшись в котором, можно найти фильмы по запросу и сохранить в личном кабинете.**
 
-## Ссылки
-
-Pull-request: <https://github.com/MarinaNasonkina/movies-explorer-frontend/pull/2>
-
-IP: 158.160.54.130
-
-Frontend: <https://mn-movies-explorer.nomoredomainsicu.ru>
-
-Backend: <https://api.mn-movies-explorer.nomoredomainsicu.ru>
-
-Макет в Figma: [light-4](https://www.figma.com/file/6FMWkB94wE7KTkcCgUXtnC/light-1?type=design&node-id=1-2798&mode=design&t=NldvwfYgA54z4QjW-0)
-
 ## Описание проекта
 
 Данный проект является дипломной работой курса [«Веб-разработчик»](https://practicum.yandex.ru/web/) от Яндекс.Практикум.
+
+Макет в Figma: [light-4](https://www.figma.com/file/6FMWkB94wE7KTkcCgUXtnC/light-1?type=design&node-id=1-2798&mode=design&t=NldvwfYgA54z4QjW-0)
 
 ### Функционал
 
@@ -38,3 +28,11 @@ Backend: <https://api.mn-movies-explorer.nomoredomainsicu.ru>
 * **Методология БЭМ**
 * **Git Branch**
 * **Работа с макетом в Figma**
+
+## Ссылки на проект в сети _(приостановлено)_
+
+IP: 158.160.54.130
+
+Frontend: <https://mn-movies-explorer.nomoredomainsicu.ru>
+
+Backend: <https://api.mn-movies-explorer.nomoredomainsicu.ru>
