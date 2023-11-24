@@ -22,18 +22,25 @@ export default function useMoviesLimiter(setLimiterOptions) {
       }
     }
 
-    const limitWithDelay = () => {
-      setTimeout(() => {
-        changeOptions();
-      }, 600);
+    function delay(func, ms) {
+      let timeout;
+
+      return function () {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          func();
+        }, ms);
+      };
     };
+
+    const changeOptionsWithDelay = delay(changeOptions, 300);
 
     changeOptions();
 
-    window.addEventListener('resize', limitWithDelay);
+    window.addEventListener('resize', changeOptionsWithDelay);
 
     return () => {
-      window.removeEventListener('resize', limitWithDelay);
+      window.removeEventListener('resize', changeOptionsWithDelay);
     };
   }, [setLimiterOptions]);
 }
